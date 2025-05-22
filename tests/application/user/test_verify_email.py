@@ -1,4 +1,3 @@
-import pytest
 from unittest.mock import AsyncMock, MagicMock
 
 from application.use_cases.user.verify_email import VerifyEmailUseCase
@@ -7,7 +6,7 @@ from tests.factories.entities import UserEntityFactory
 
 
 class TestVerifyEmailUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.user_repository = AsyncMock()
         self.email_service = MagicMock()
         self.transaction_manager = AsyncMock()
@@ -17,7 +16,7 @@ class TestVerifyEmailUseCase:
             transaction_manager=self.transaction_manager,
         )
 
-    async def test_verify_email_success(self):
+    async def test_verify_email_success(self) -> None:
         user = UserEntityFactory(is_verified=False)
         updated_user = UserEntityFactory(is_verified=True, uuid=user.uuid, email=user.email)
         token = "verification_token"

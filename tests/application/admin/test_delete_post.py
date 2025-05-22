@@ -9,7 +9,7 @@ from domain.exceptions.post import PostDoesNotExistsException
 
 
 class TestAdminDeletePostUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.post_repository = AsyncMock()
         self.transaction_manager = AsyncMock()
         self.check_is_admin_use_case = AsyncMock()
@@ -19,7 +19,7 @@ class TestAdminDeletePostUseCase:
             check_is_admin_use_case=self.check_is_admin_use_case,
         )
 
-    async def test_delete_post_success(self):
+    async def test_delete_post_success(self) -> None:
         post_uuid = uuid4()
         await self.use_case(post_uuid)
 
@@ -28,7 +28,7 @@ class TestAdminDeletePostUseCase:
         self.transaction_manager.__aenter__.assert_called_once()
         self.transaction_manager.__aexit__.assert_called_once()
 
-    async def test_delete_post_not_admin(self):
+    async def test_delete_post_not_admin(self) -> None:
         post_uuid = uuid4()
         self.check_is_admin_use_case.side_effect = AccessException()
 
@@ -40,7 +40,7 @@ class TestAdminDeletePostUseCase:
         self.transaction_manager.__aenter__.assert_not_called()
         self.transaction_manager.__aexit__.assert_not_called()
 
-    async def test_delete_post_not_exists(self):
+    async def test_delete_post_not_exists(self) -> None:
         post_uuid = uuid4()
         self.post_repository.delete_by_uuid.side_effect = PostDoesNotExistsException(post_uuid)
 

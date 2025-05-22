@@ -46,7 +46,7 @@ async def read(
     return post
 
 
-@router.get(
+@router.post(
     "/update",
     response_model=ReadPostDTO,
 )

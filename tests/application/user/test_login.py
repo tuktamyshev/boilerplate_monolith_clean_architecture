@@ -9,7 +9,7 @@ from tests.factories.entities import UserEntityFactory
 
 
 class TestLoginUserUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.user_repository = AsyncMock()
         self.password_hasher_service = MagicMock()
         self.use_case = LoginUserUseCase(
@@ -17,7 +17,7 @@ class TestLoginUserUseCase:
             password_hasher_service=self.password_hasher_service,
         )
 
-    async def test_login_success(self):
+    async def test_login_success(self) -> None:
         user = UserEntityFactory(is_verified=True, is_active=True)
         password = "password123"
         self.user_repository.get_one_or_none.return_value = user
@@ -33,7 +33,7 @@ class TestLoginUserUseCase:
             hashed_password=user.hashed_password,
         )
 
-    async def test_login_wrong_credentials(self):
+    async def test_login_wrong_credentials(self) -> None:
         email = EmailValueObject("test@example.com")
         password = "wrong_password"
         self.user_repository.get_one_or_none.return_value = None
@@ -43,7 +43,7 @@ class TestLoginUserUseCase:
         with pytest.raises(WrongEmailOrPasswordException):
             await self.use_case(dto)
 
-    async def test_login_inactive_user(self):
+    async def test_login_inactive_user(self) -> None:
         user = UserEntityFactory(is_verified=True, is_active=False)
         password = "password123"
         self.user_repository.get_one_or_none.return_value = user
@@ -54,7 +54,7 @@ class TestLoginUserUseCase:
         with pytest.raises(InactiveUserException):
             await self.use_case(dto)
 
-    async def test_login_unverified_user(self):
+    async def test_login_unverified_user(self) -> None:
         user = UserEntityFactory(is_verified=False, is_active=True)
         password = "password123"
         self.user_repository.get_one_or_none.return_value = user

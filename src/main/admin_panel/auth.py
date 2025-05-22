@@ -5,10 +5,11 @@ from starlette.responses import Response
 
 from adapters.auth import JWTTokenService
 from adapters.constants import JWTTokenType
-from adapters.user_uuid_provider import AuthByTokenDTO
+from adapters.user_uuid_provider import AuthByTokenDTO, TokenUserUUIDProvider
 from application.exceptions.auth import AuthenticationException
-from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
+from application.interfaces.repositories.user import UserRepository
 from application.use_cases.user.login import LoginUserUseCase, UserLoginDTO
+from config.auth import JWTAuthConfig
 
 
 class AdminAuth(AuthenticationBackend):
@@ -39,10 +40,14 @@ class AdminAuth(AuthenticationBackend):
         if not token:
             return False
 
-        user_uuid_provider = await request.scope["state"]["dishka_container"].get(UserUUIDProviderInterface)
-
+        auth_config = await request.scope["state"]["dishka_container"].get(JWTAuthConfig)
+        user_uuid_provider = TokenUserUUIDProvider(
+            token_data=AuthByTokenDTO(token=token, token_type=JWTTokenType.ACCESS.value), auth_config=auth_config
+        )
+        user_repository = await request.scope["state"]["dishka_container"].get(UserRepository)
         try:
-            user = await user_uuid_provider(AuthByTokenDTO(token=token, token_type=JWTTokenType.ACCESS.value))
+            user_uuid = user_uuid_provider.get_current_user_uuid()
+            user = await user_repository.get_one(uuid=user_uuid)
         except AuthenticationException:
             return RedirectResponse(request.url_for("admin:login"), status_code=302)
 

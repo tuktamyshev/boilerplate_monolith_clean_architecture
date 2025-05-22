@@ -42,7 +42,7 @@ async def register(
     return user
 
 
-@router.get("/verify_email", response_model=ReadUserDTO)
+@router.post("/verify_email", response_model=ReadUserDTO)
 async def verify_email(
     use_case: FromDishka[VerifyEmailUseCase],
     token: Annotated[str, Query()],
@@ -113,7 +113,7 @@ async def refresh(
         response,
         access_token=access_token,
     )
-    return TokenInfoDTO(
+    return TokenInfoDTO(  # nosec
         access_token=access_token,
         token_type="Cookie",
     )

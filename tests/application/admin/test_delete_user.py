@@ -8,7 +8,7 @@ from domain.value_objects.email import EmailValueObject
 
 
 class TestAdminDeleteUserUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.user_repository = AsyncMock()
         self.transaction_manager = AsyncMock()
         self.check_is_admin_use_case = AsyncMock()
@@ -18,7 +18,7 @@ class TestAdminDeleteUserUseCase:
             check_is_admin_use_case=self.check_is_admin_use_case,
         )
 
-    async def test_delete_user_success(self):
+    async def test_delete_user_success(self) -> None:
         email = EmailValueObject("test@example.com")
         await self.use_case(email)
 
@@ -27,7 +27,7 @@ class TestAdminDeleteUserUseCase:
         self.transaction_manager.__aenter__.assert_called_once()
         self.transaction_manager.__aexit__.assert_called_once()
 
-    async def test_delete_user_not_admin(self):
+    async def test_delete_user_not_admin(self) -> None:
         email = EmailValueObject("test@example.com")
         self.check_is_admin_use_case.side_effect = AccessException()
 

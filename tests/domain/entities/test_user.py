@@ -4,7 +4,7 @@ from domain.entities.user import UserEntity
 from domain.value_objects.email import EmailValueObject
 
 
-def test_user_create_success():
+def test_user_create_success() -> None:
     email = EmailValueObject("test@example.com")
     hashed_password = "hashed_pwd"
 

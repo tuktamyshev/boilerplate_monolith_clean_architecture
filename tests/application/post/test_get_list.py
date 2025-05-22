@@ -1,14 +1,12 @@
-import pytest
 from unittest.mock import AsyncMock, MagicMock
 
-from application.interfaces.repositories.post import GetPostListDTO, PostListDTO, PostInfoDTO
+from application.interfaces.repositories.post import GetPostListDTO, PostInfoDTO, PostListDTO
 from application.use_cases.post.get_list import GetPostListUseCase
-from domain.entities.post import PostEntity
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 
 class TestGetPostListUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.post_repository = AsyncMock()
         self.user_uuid_provider = MagicMock()
         self.user = UserEntityFactory()
@@ -18,7 +16,7 @@ class TestGetPostListUseCase:
             user_uuid_provider=self.user_uuid_provider,
         )
 
-    async def test_get_post_list_success(self):
+    async def test_get_post_list_success(self) -> None:
         dto = GetPostListDTO(limit=2, offset=0, text=None, date_from=None, date_to=None, user_uuid=None)
         posts = [PostEntityFactory(), PostEntityFactory()]
         expected_result = PostListDTO(items=posts, total=2)

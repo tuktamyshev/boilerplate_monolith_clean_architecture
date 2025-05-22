@@ -1,4 +1,5 @@
 from unittest.mock import AsyncMock, MagicMock
+
 import pytest
 
 from application.use_cases.post.delete import DeletePostUseCase
@@ -7,7 +8,7 @@ from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 
 class TestDeletePostUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.post_repository = AsyncMock()
         self.user_uuid_provider = MagicMock()
         self.access_service = MagicMock()
@@ -23,7 +24,7 @@ class TestDeletePostUseCase:
             access_service=self.access_service,
         )
 
-    async def test_delete_post_success(self):
+    async def test_delete_post_success(self) -> None:
         await self.use_case(self.post.uuid)
 
         self.post_repository.get_one.assert_awaited_once_with(uuid=self.post.uuid)
@@ -32,7 +33,7 @@ class TestDeletePostUseCase:
         self.transaction_manager.__aenter__.assert_called_once()
         self.transaction_manager.__aexit__.assert_called_once()
 
-    async def test_delete_post_not_owner(self):
+    async def test_delete_post_not_owner(self) -> None:
         other_user = UserEntityFactory()
         self.user_uuid_provider.get_current_user_uuid.return_value = other_user.uuid
         self.access_service.check_is_owner.side_effect = AccessException()

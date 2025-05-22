@@ -11,6 +11,7 @@ from src.main.exception_handlers import faststream_exc_middleware, init_exceptio
 
 from config.base import Config
 from config.logs import setup_logging
+from main.admin_panel import init_admin
 from main.worker import (
     worker,  # noqa it must be imported so that it can be sent by .kiq tasks from the app to the worker
 )
@@ -18,7 +19,10 @@ from main.worker import (
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AbstractAsyncContextManager[None]:
+    await init_admin(app)
+
     yield
+
     await app.state.dishka_container.close()
 
 

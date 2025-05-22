@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from uuid import UUID
 
 import jwt
+from jwt import InvalidTokenError
 from pydantic import BaseModel
 
 from application.exceptions.auth import WrongTokenException
@@ -41,7 +42,7 @@ class TokenUserUUIDProvider(UserUUIDProviderInterface):
                 self.auth_config.PUBLIC_KEY_PATH.read_text(),
                 self.auth_config.ALGORITHM,
             )
-        except InvalidTokenError:  # noqa
+        except InvalidTokenError:
             raise WrongTokenException()
 
     @staticmethod

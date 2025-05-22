@@ -4,7 +4,7 @@ from domain.entities.post import PostEntity
 from domain.value_objects.post_text import PostTextValueObject
 
 
-def test_post_create_success():
+def test_post_create_success() -> None:
     user_uuid = uuid4()
     text = PostTextValueObject("hello world")
 

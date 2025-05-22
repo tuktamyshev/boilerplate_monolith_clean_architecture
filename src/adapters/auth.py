@@ -22,7 +22,7 @@ class JWTTokenService:
         access_token = self.create_access_token(user_uuid)
         refresh_token = self.create_refresh_token(user_uuid)
 
-        return TokenInfoDTO(
+        return TokenInfoDTO(  # nosec
             access_token=access_token,
             refresh_token=refresh_token,
             token_type="Cookie",

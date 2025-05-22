@@ -3,8 +3,6 @@ from typing import AsyncIterable
 from dishka import Provider, Scope, provide
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
 
-from adapters.transaction_manager import SqlAlchemyTransactionManager
-from application.interfaces.transaction_manager import TransactionManager
 from config.base import Config
 
 

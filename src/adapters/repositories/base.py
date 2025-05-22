@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from sqlalchemy import UUID, select
+from sqlalchemy.exc import NoResultFound
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from adapters.orm.base import BaseORM
@@ -28,7 +29,7 @@ class SQLAlchemyRepository[ET](BaseRepository, ABC):
     async def delete_by_uuid(self, uuid: UUID) -> None:
         orm_model = await self.session.get(self.model, uuid)
         if not orm_model:
-            raise ModelDoesNotExists(uuid=uuid)
+            raise ModelDoesNotExists()
 
         await self.session.delete(orm_model)
         await self.session.flush()
@@ -45,7 +46,10 @@ class SQLAlchemyRepository[ET](BaseRepository, ABC):
         query = select(self.model).filter_by(**filters)
 
         res = await self.session.execute(query)
-        orm_model = res.scalar_one()
+        try:
+            orm_model = res.scalar_one()
+        except NoResultFound:
+            raise ModelDoesNotExists()
 
         return self.entity.model_validate(orm_model)
 

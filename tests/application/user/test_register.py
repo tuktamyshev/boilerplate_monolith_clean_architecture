@@ -1,15 +1,16 @@
-import pytest
 from unittest.mock import AsyncMock, MagicMock
 
-from application.use_cases.user.register import RegisterUserUseCase, UserCreateDTO
+import pytest
+
 from application.exceptions.user import UserWithThisEmailAlreadyExistsException
+from application.use_cases.user.register import RegisterUserUseCase, UserCreateDTO
 from domain.entities.user import UserEntity
 from domain.value_objects.email import EmailValueObject
 from tests.factories.entities import UserEntityFactory
 
 
 class TestRegisterUserUseCase:
-    def setup_method(self):
+    def setup_method(self) -> None:
         self.user_repository = AsyncMock()
         self.transaction_manager = AsyncMock()
         self.email_service = AsyncMock()
@@ -21,7 +22,7 @@ class TestRegisterUserUseCase:
             password_hasher_service=self.password_hasher_service,
         )
 
-    async def test_register_user_success(self):
+    async def test_register_user_success(self) -> None:
         email = EmailValueObject("test@example.com")
         password = "password123"
         hashed_password = "hashed_password"
@@ -41,7 +42,7 @@ class TestRegisterUserUseCase:
         self.transaction_manager.__aenter__.assert_called_once()
         self.transaction_manager.__aexit__.assert_called_once()
 
-    async def test_register_user_already_exists(self):
+    async def test_register_user_already_exists(self) -> None:
         email = EmailValueObject("test@example.com")
         password = "password123"
         existing_user = UserEntityFactory(is_verified=True)

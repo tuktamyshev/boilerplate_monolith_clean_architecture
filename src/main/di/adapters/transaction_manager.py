@@ -1,8 +1,6 @@
-from dishka import Provider, provide, Scope
+from dishka import Provider, Scope, provide
 
-from adapters.password_hasher import PasswordHasherService
 from adapters.transaction_manager import SqlAlchemyTransactionManager
-from application.interfaces.password_hasher import PasswordHasherInterface
 from application.interfaces.transaction_manager import TransactionManager
 
 

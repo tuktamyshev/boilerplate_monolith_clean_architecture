@@ -39,7 +39,7 @@ class UserEntityFactory(factory.Factory):
     is_verified = True
 
     @factory.post_generation
-    def password(self, create, extracted, **kwargs):
+    def password(self, create, extracted, **kwargs):  # noqa
         pwd = extracted or "password"
 
         salt = bcrypt.gensalt()
