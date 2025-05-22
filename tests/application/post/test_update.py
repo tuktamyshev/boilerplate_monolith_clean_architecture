@@ -1,11 +1,11 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-
 from application.use_cases.post.update import UpdatePostDTO, UpdatePostUseCase
 from domain.entities.post import PostEntity
 from domain.exceptions.access import AccessException
 from domain.value_objects.post_text import PostTextValueObject
+
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 

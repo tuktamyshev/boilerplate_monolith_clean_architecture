@@ -1,10 +1,10 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-
 from application.exceptions.auth import InactiveUserException, WrongEmailOrPasswordException
 from application.use_cases.user.login import LoginUserUseCase, UserLoginDTO
 from domain.value_objects.email import EmailValueObject
+
 from tests.factories.entities import UserEntityFactory
 
 

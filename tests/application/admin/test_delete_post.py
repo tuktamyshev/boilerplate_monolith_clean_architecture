@@ -2,7 +2,6 @@ from unittest.mock import AsyncMock
 from uuid import uuid4
 
 import pytest
-
 from application.use_cases.admin.delete_post import AdminDeletePostUseCase
 from domain.exceptions.access import AccessException
 from domain.exceptions.post import PostDoesNotExistsException

@@ -21,6 +21,8 @@ dependencies = [
     "aiosmtplib>=4.0.1",
     "colorlog>=6.9.0",
     "pyjwt[crypto]>=2.9.0",
+    "gunicorn>=23.0.0",
+    "fastapi[all]>=0.115.12",
 ]
 
 [dependency-groups]
@@ -60,7 +62,7 @@ target-version = 'py313'
 preview = true
 
 [tool.pytest.ini_options]
-pythonpath = [".", "src"]
+pythonpath = "src/boilerplate_monolith_clean_architecture"
 asyncio_mode = "auto"
 #env_files=[".env.test"]
 #asyncio_default_fixture_loop_scope="session"

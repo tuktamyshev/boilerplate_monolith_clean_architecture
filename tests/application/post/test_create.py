@@ -3,6 +3,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 from application.interfaces.user_notificator import NotifyNewPostDTO
 from application.use_cases.post.create import CreatePostDTO, CreatePostUseCase
 from domain.entities.post import PostEntity
+
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 

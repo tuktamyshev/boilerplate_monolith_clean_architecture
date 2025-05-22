@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     container_name: monolith-backend-boilerplate-worker
     entrypoint: ""  # <-- disable ENTRYPOINT from Dockerfile
-    command: cd src && taskiq worker src.main.worker:worker  --workers 4
+    command: sh -c "cd src/boilerplate_monolith_clean_architecture && taskiq worker main.worker:worker  --workers 4"
     env_file:
       - ../env/.env.default
       - ../env/.env.docker
@@ -40,7 +40,7 @@ services:
     restart: unless-stopped
     container_name: monolith-backend-boilerplate-scheduler
     entrypoint: ""  # <-- disable ENTRYPOINT from Dockerfile
-    command: cd src && taskiq scheduler src.main.worker:scheduler
+    command: sh -c "cd src/boilerplate_monolith_clean_architecture && taskiq scheduler main.worker:scheduler"
     env_file:
       - ../env/.env.default
       - ../env/.env.docker
