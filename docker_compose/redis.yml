@@ -1,0 +1,25 @@
+services:
+  monolith-backend-boilerplate-redis:
+    image: redis:7.4.1
+    container_name: monolith-backend-boilerplate-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - monolith_backend_boilerplate_redis_data:/data
+    command: ["redis-server"]
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      timeout: 5s
+      retries: 2
+      start_period: 5s
+
+    networks:
+      - monolith-backend-boilerplate
+
+networks:
+  monolith-backend-boilerplate:
+    driver: bridge
+
+volumes:
+  monolith_backend_boilerplate_redis_data:

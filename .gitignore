@@ -1,0 +1,9 @@
+env/.env
+env/.env.docker
+.venv/
+.idea/
+*.pyc
+__pycache__/
+logs/
+media/
+certs/

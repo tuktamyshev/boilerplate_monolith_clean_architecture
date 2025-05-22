@@ -1,0 +1,24 @@
+services:
+  monolith-backend-boilerplate-db:
+    container_name: monolith-backend-boilerplate-db
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: $DB__PASSWORD
+      POSTGRES_USER: $DB__USER
+      POSTGRES_DB: $DB__NAME
+    command: -p $DB__PORT
+    ports:
+      - ${DB__PORT}:5432
+    volumes:
+      - monolith_backend_boilerplate_db_data:/var/lib/postgresql/data/
+
+    networks:
+      - monolith-backend-boilerplate
+
+networks:
+  monolith-backend-boilerplate:
+    driver: bridge
+
+volumes:
+  monolith_backend_boilerplate_db_data:

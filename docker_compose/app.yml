@@ -1,0 +1,57 @@
+services:
+  monolith-backend-boilerplate-app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: monolith-backend-boilerplate-app
+    ports:
+      - ${APP__API_PORT}:8000
+    env_file:
+      - ../env/.env.default
+      - ../env/.env.docker
+    volumes:
+      - ../src/:/app/src/
+      - monolith_backend_boilerplate_logs:/app/logs
+    networks:
+      - monolith-backend-boilerplate
+
+  monolith-backend-boilerplate-worker:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: monolith-backend-boilerplate-worker
+    entrypoint: ""  # <-- disable ENTRYPOINT from Dockerfile
+    command: cd src && taskiq worker src.main.worker:worker  --workers 4
+    env_file:
+      - ../env/.env.default
+      - ../env/.env.docker
+    volumes:
+      - ../src/:/app/src/
+      - monolith_backend_boilerplate_logs:/app/logs
+    networks:
+      - monolith-backend-boilerplate
+
+  monolith-backend-boilerplate-scheduler:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: monolith-backend-boilerplate-scheduler
+    entrypoint: ""  # <-- disable ENTRYPOINT from Dockerfile
+    command: cd src && taskiq scheduler src.main.worker:scheduler
+    env_file:
+      - ../env/.env.default
+      - ../env/.env.docker
+    volumes:
+      - ../src/:/app/src/
+    networks:
+      - monolith-backend-boilerplate
+
+networks:
+  monolith-backend-boilerplate:
+    driver: bridge
+
+volumes:
+  monolith_backend_boilerplate_logs:
