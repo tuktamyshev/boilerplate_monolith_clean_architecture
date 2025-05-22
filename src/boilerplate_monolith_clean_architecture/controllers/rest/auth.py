@@ -1,5 +1,13 @@
 from typing import Annotated
 
+from dishka import FromDishka
+from dishka.integrations.fastapi import DishkaRoute, inject
+from fastapi import APIRouter, Depends, Form, Query
+from pydantic import EmailStr
+from starlette import status
+from starlette.requests import Request
+from starlette.responses import Response
+
 from adapters.auth import JWTTokenService, TokenInfoDTO
 from adapters.constants import JWTTokenType
 from adapters.cookie_service import CookieService
@@ -10,14 +18,7 @@ from application.use_cases.user.register import RegisterUserUseCase, UserCreateD
 from application.use_cases.user.verify_email import VerifyEmailUseCase
 from config.auth import JWTAuthConfig
 from controllers.dtos.user import ReadUserDTO
-from dishka import FromDishka
-from dishka.integrations.fastapi import DishkaRoute, inject
 from domain.entities.user import UserEntity
-from fastapi import APIRouter, Depends, Form, Query
-from pydantic import EmailStr
-from starlette import status
-from starlette.requests import Request
-from starlette.responses import Response
 
 router = APIRouter(
     prefix="/auth",

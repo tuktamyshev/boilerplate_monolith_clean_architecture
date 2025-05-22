@@ -1,7 +1,8 @@
-from application.interfaces.user_notificator import NotifyUsersDTO, UserNotificatorInterface
 from dishka import FromDishka
 from dishka.integrations.taskiq import inject
 from taskiq.brokers.shared_broker import shared_task
+
+from application.interfaces.user_notificator import NotifyUsersDTO, UserNotificatorInterface
 
 
 @shared_task(schedule=[{"cron": "* * * * *"}])  # every hour

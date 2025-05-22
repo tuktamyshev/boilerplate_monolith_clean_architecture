@@ -1,11 +1,11 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
+
 from application.exceptions.user import UserWithThisEmailAlreadyExistsException
 from application.use_cases.user.register import RegisterUserUseCase, UserCreateDTO
 from domain.entities.user import UserEntity
 from domain.value_objects.email import EmailValueObject
-
 from tests.factories.entities import UserEntityFactory
 
 

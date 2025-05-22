@@ -1,7 +1,7 @@
 import pytest
+
 from domain.exceptions.access import AccessException
 from domain.services.access import AccessService
-
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 

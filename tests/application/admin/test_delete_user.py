@@ -1,6 +1,7 @@
 from unittest.mock import AsyncMock
 
 import pytest
+
 from application.use_cases.admin.delete_user import AdminDeleteUserUseCase
 from domain.exceptions.access import AccessException
 from domain.value_objects.email import EmailValueObject

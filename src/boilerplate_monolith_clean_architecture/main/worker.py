@@ -1,12 +1,13 @@
+from taskiq import TaskiqScheduler, async_shared_broker
+from taskiq.brokers.shared_broker import AsyncSharedBroker
+from taskiq.schedule_sources import LabelScheduleSource
+from taskiq_redis import RedisStreamBroker
+
 from config.base import Config
 from config.logs import setup_logging
 from controllers.tasks import notify_users_about_good_day
 from main.di import init_worker_di
 from main.exception_handlers import ExceptionLoggingMiddleware
-from taskiq import TaskiqScheduler, async_shared_broker
-from taskiq.brokers.shared_broker import AsyncSharedBroker
-from taskiq.schedule_sources import LabelScheduleSource
-from taskiq_redis import RedisStreamBroker
 
 # importing all tasks so that the worker and scheduler processes can see them
 tasks = [

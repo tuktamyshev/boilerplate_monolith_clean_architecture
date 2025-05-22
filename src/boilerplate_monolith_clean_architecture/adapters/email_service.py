@@ -4,6 +4,8 @@ from email.message import EmailMessage
 
 import aiosmtplib
 import jwt
+from jwt import InvalidTokenError
+
 from application.exceptions.auth import WrongTokenException
 from application.interfaces.email import EmailServiceInterface
 from application.interfaces.repositories.user import UserRepository
@@ -12,7 +14,6 @@ from config.app import AppConfig
 from config.auth import JWTAuthConfig
 from config.smtp import SMTPConfig
 from domain.value_objects.email import EmailValueObject
-from jwt import InvalidTokenError
 
 
 @dataclass(frozen=True)

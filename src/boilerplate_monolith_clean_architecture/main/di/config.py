@@ -1,10 +1,11 @@
+from dishka import Provider, Scope, from_context, provide
+
 from config.app import AppConfig
 from config.auth import JWTAuthConfig
 from config.base import Config
 from config.broker import BrokerConfig
 from config.db import DatabaseConfig
 from config.smtp import SMTPConfig
-from dishka import Provider, Scope, from_context, provide
 
 
 class ConfigProvider(Provider):

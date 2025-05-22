@@ -1,8 +1,9 @@
 from typing import AsyncIterable
 
-from config.base import Config
 from dishka import Provider, Scope, provide
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
+
+from config.base import Config
 
 
 class SQLAlchemyDatabaseProvider(Provider):

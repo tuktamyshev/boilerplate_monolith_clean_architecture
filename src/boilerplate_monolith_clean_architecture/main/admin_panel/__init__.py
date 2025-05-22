@@ -1,11 +1,12 @@
 from fastapi import FastAPI
+from sqladmin import Admin
+from sqlalchemy.ext.asyncio import AsyncEngine
+
 from main.admin_panel.auth import AdminAuth
 from main.admin_panel.model_views import (
     CallAdmin,
     UserAdmin,
 )
-from sqladmin import Admin
-from sqlalchemy.ext.asyncio import AsyncEngine
 
 __all__ = ["init_admin"]
 

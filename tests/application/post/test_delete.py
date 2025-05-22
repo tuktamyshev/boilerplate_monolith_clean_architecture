@@ -1,9 +1,9 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
+
 from application.use_cases.post.delete import DeletePostUseCase
 from domain.exceptions.access import AccessException
-
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 

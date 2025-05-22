@@ -3,8 +3,9 @@ from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
 import jwt
-from config.auth import JWTAuthConfig
 from pydantic import BaseModel
+
+from config.auth import JWTAuthConfig
 
 
 class TokenInfoDTO(BaseModel):

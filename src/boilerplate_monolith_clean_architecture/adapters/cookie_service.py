@@ -1,9 +1,10 @@
 from dataclasses import dataclass
 
-from config.app import AppConfig
-from config.auth import JWTAuthConfig
 from fastapi.security import APIKeyCookie
 from starlette.responses import Response
+
+from config.app import AppConfig
+from config.auth import JWTAuthConfig
 
 
 @dataclass(frozen=True)

@@ -1,3 +1,6 @@
+from fastapi import APIRouter
+from starlette import status
+
 from controllers.broker import router as broker_router
 from controllers.dtos.exception import ApplicationExceptionSchema
 from controllers.rest.admin import router as admin_router
@@ -6,8 +9,6 @@ from controllers.rest.healthcheck import router as healthcheck_router
 from controllers.rest.post import router as post_router
 from controllers.rest.user import router as user_router
 from controllers.websocket.user import router as ws_user_router
-from fastapi import APIRouter
-from starlette import status
 
 __all__ = ["main_http_router", "broker_router"]
 

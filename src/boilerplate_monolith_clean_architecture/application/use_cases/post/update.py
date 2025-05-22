@@ -1,13 +1,14 @@
 from dataclasses import dataclass
 from uuid import UUID
 
+from pydantic import BaseModel
+
 from application.interfaces.repositories.post import PostRepository
 from application.interfaces.transaction_manager import TransactionManager
 from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from application.use_cases.base import UseCase
 from domain.entities.post import PostEntity
 from domain.services.access import AccessService
-from pydantic import BaseModel
 
 
 class UpdatePostDTO(BaseModel):

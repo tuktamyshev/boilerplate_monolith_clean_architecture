@@ -1,6 +1,7 @@
+from dishka import Provider, Scope, provide
+
 from adapters.email_service import DevelopEmailService, EmailService
 from application.interfaces.email import EmailServiceInterface
-from dishka import Provider, Scope, provide
 
 
 class EmailServiceProvider(Provider):

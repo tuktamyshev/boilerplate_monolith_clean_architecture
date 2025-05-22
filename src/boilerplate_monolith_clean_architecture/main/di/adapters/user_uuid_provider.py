@@ -1,13 +1,14 @@
-from adapters.constants import JWTTokenType
-from adapters.cookie_service import CookieService
-from adapters.user_uuid_provider import AuthByTokenDTO, TokenUserUUIDProvider
-from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
-from config.auth import JWTAuthConfig
 from dishka import Provider, Scope, provide
 from fastapi import WebSocketException
 from starlette import status
 from starlette.requests import Request
 from starlette.websockets import WebSocket
+
+from adapters.constants import JWTTokenType
+from adapters.cookie_service import CookieService
+from adapters.user_uuid_provider import AuthByTokenDTO, TokenUserUUIDProvider
+from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
+from config.auth import JWTAuthConfig
 
 
 class TokenUserUUIDProviderProvider(Provider):  # ;D ProviderProvider

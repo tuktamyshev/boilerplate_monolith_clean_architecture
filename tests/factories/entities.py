@@ -3,11 +3,12 @@ from uuid import uuid4
 
 import bcrypt
 import factory
+from faker import Faker
+
 from domain.entities.post import PostEntity
 from domain.entities.user import UserEntity
 from domain.value_objects.email import EmailValueObject
 from domain.value_objects.post_text import PostTextValueObject
-from faker import Faker
 
 fake = Faker()
 

@@ -1,7 +1,8 @@
-from config.broker import BrokerConfig
 from dishka import Provider, Scope, from_context, provide
 from faststream.broker.core.abc import ABCBroker
 from faststream.confluent.publisher.asyncapi import AsyncAPIDefaultPublisher
+
+from config.broker import BrokerConfig
 
 
 class KafkaBrokerProvider(Provider):

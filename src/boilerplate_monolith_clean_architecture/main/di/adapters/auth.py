@@ -1,5 +1,6 @@
-from adapters.auth import JWTTokenService
 from dishka import Provider, provide
+
+from adapters.auth import JWTTokenService
 
 
 class JWTAuthServiceProvider(Provider):

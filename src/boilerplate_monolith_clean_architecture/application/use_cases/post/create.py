@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from pydantic import BaseModel
+
 from application.interfaces.analyze_service import AnalyzePostServiceInterface
 from application.interfaces.repositories.post import PostRepository
 from application.interfaces.transaction_manager import TransactionManager
@@ -8,7 +10,6 @@ from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from application.use_cases.base import UseCase
 from domain.entities.post import PostEntity
 from domain.value_objects.post_text import PostTextValueObject
-from pydantic import BaseModel
 
 
 class CreatePostDTO(BaseModel):

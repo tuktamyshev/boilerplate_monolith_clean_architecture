@@ -1,7 +1,8 @@
 from pathlib import Path
 
-from config import BASE_DIR
 from pydantic import BaseModel
+
+from config import BASE_DIR
 
 
 class JWTAuthConfig(BaseModel):

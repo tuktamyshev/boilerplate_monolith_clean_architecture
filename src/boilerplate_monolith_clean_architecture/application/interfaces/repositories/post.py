@@ -3,11 +3,12 @@ from dataclasses import dataclass
 from datetime import datetime
 from uuid import UUID
 
+from pydantic import BaseModel, ConfigDict
+
 from application.dtos.pagination import PaginatedRequestDTO, PaginatedResponseDTO
 from application.interfaces.repositories.base import BaseRepository
 from domain.entities.post import PostEntity
 from domain.value_objects.post_text import PostTextValueObject
-from pydantic import BaseModel, ConfigDict
 
 
 class PostInfoDTO(BaseModel):

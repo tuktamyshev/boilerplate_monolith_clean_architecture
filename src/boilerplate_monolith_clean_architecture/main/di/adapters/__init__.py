@@ -1,4 +1,5 @@
 from dishka import Scope
+
 from main.di.adapters.analyze_service import AnalyzeServiceProvider
 from main.di.adapters.auth import JWTAuthServiceProvider
 from main.di.adapters.broker import KafkaBrokerProvider

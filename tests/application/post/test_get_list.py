@@ -2,7 +2,6 @@ from unittest.mock import AsyncMock, MagicMock
 
 from application.interfaces.repositories.post import GetPostListDTO, PostInfoDTO, PostListDTO
 from application.use_cases.post.get_list import GetPostListUseCase
-
 from tests.factories.entities import PostEntityFactory, UserEntityFactory
 
 

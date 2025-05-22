@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 
+from faststream.confluent.publisher.asyncapi import AsyncAPIDefaultPublisher
+
 from application.interfaces.analyze_service import AnalyzePostServiceInterface
 from domain.entities.post import PostEntity
-from faststream.confluent.publisher.asyncapi import AsyncAPIDefaultPublisher
 
 
 @dataclass(frozen=True)

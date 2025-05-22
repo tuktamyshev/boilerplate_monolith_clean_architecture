@@ -1,11 +1,12 @@
-from application.exceptions.auth import AuthenticationException
-from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
-from controllers.websocket.event_handlers.user import WebSocketUserEventHandler
 from dishka import FromDishka
 from dishka.integrations.fastapi import inject
 from fastapi import APIRouter, WebSocketException
 from fastapi.websockets import WebSocket
 from starlette import status
+
+from application.exceptions.auth import AuthenticationException
+from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
+from controllers.websocket.event_handlers.user import WebSocketUserEventHandler
 
 router = APIRouter(
     prefix="/ws",

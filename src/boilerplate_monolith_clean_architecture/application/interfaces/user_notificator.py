@@ -3,8 +3,9 @@ from dataclasses import dataclass
 from datetime import datetime
 from uuid import UUID
 
-from domain.value_objects.post_text import PostTextValueObject
 from pydantic import BaseModel
+
+from domain.value_objects.post_text import PostTextValueObject
 
 
 class SendMessageToAnotherUserDTO(BaseModel):

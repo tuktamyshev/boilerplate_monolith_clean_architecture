@@ -2,13 +2,14 @@ from abc import ABC
 from dataclasses import dataclass
 from typing import Any
 
+from sqlalchemy import UUID, select
+from sqlalchemy.exc import NoResultFound
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from adapters.orm.base import BaseORM
 from application.exceptions.repository import ModelDoesNotExists
 from application.interfaces.repositories.base import BaseRepository
 from domain.entities.base import BaseEntity
-from sqlalchemy import UUID, select
-from sqlalchemy.exc import NoResultFound
-from sqlalchemy.ext.asyncio import AsyncSession
 
 
 @dataclass(frozen=True)

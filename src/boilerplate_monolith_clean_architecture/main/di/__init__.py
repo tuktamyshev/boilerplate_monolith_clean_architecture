@@ -1,5 +1,3 @@
-from adapters.constants import ApplicationMode
-from config.base import Config
 from dishka import AsyncContainer, make_async_container
 from dishka.integrations.fastapi import FastapiProvider
 from dishka.integrations.fastapi import setup_dishka as fastapi_dishka
@@ -9,11 +7,14 @@ from dishka.integrations.taskiq import TaskiqProvider
 from dishka.integrations.taskiq import setup_dishka as taskiq_dishka
 from fastapi import FastAPI
 from faststream.broker.core.abc import ABCBroker
+from taskiq import AsyncBroker
+
+from adapters.constants import ApplicationMode
+from config.base import Config
 from main.di.adapters import AdaptersProvider, DevelopmentAdaptersProvider
 from main.di.config import ConfigProvider
 from main.di.domain_services import DomainServiceProvider
 from main.di.use_cases import UseCasesProvider
-from taskiq import AsyncBroker
 
 
 def init_web_di(app: FastAPI) -> None:

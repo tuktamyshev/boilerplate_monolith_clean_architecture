@@ -2,11 +2,12 @@ from dataclasses import dataclass
 from uuid import UUID
 
 import jwt
+from jwt import InvalidTokenError
+from pydantic import BaseModel
+
 from application.exceptions.auth import WrongTokenException
 from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from config.auth import JWTAuthConfig
-from jwt import InvalidTokenError
-from pydantic import BaseModel
 
 
 class AuthByTokenDTO(BaseModel):

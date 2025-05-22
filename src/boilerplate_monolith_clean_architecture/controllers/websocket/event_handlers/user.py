@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 from uuid import UUID
 
-from application.use_cases.message_from_user import MessageFromUserUseCase, MessageToAnotherUserDTO
-from controllers.websocket.event_handlers.base import BaseWebSocketUserEventHandler
 from dishka import FromDishka
 from starlette.websockets import WebSocket
+
+from application.use_cases.message_from_user import MessageFromUserUseCase, MessageToAnotherUserDTO
+from controllers.websocket.event_handlers.base import BaseWebSocketUserEventHandler
 
 
 @dataclass(frozen=True)

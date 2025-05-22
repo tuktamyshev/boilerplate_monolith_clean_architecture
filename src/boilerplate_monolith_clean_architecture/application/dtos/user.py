@@ -1,7 +1,8 @@
 from typing import Any
 
-from domain.value_objects.email import EmailValueObject
 from pydantic import BaseModel, ConfigDict
+
+from domain.value_objects.email import EmailValueObject
 
 
 class UserEmailDTO(BaseModel):

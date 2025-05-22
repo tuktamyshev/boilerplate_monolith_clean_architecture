@@ -1,10 +1,11 @@
 from dataclasses import dataclass
 from uuid import UUID
 
+from pydantic import BaseModel
+
 from application.interfaces.user_notificator import SendMessageToAnotherUserDTO, UserNotificatorInterface
 from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from application.use_cases.base import UseCase
-from pydantic import BaseModel
 
 
 class MessageToAnotherUserDTO(BaseModel):

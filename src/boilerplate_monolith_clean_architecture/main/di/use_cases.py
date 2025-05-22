@@ -1,3 +1,5 @@
+from dishka import Provider, Scope, provide
+
 from application.use_cases.admin.check_is_admin import CheckIsAdminUseCase
 from application.use_cases.admin.delete_post import AdminDeletePostUseCase
 from application.use_cases.admin.delete_user import AdminDeleteUserUseCase
@@ -9,7 +11,6 @@ from application.use_cases.post.get_list import GetPostListUseCase
 from application.use_cases.post.update import UpdatePostUseCase
 from application.use_cases.user.login import LoginUserUseCase
 from application.use_cases.user.register import RegisterUserUseCase
-from dishka import Provider, Scope, provide
 
 
 class UseCasesProvider(Provider):

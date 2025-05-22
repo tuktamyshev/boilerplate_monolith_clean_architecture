@@ -1,4 +1,5 @@
 import pytest
+
 from domain.exceptions.email import EmailMustBeLowercaseException, EmailTooLongException, InvalidEmailException
 from domain.value_objects.email import EmailValueObject
 

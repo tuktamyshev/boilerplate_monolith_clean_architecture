@@ -1,8 +1,9 @@
+from dishka import Provider, provide
+from faststream.confluent.publisher.asyncapi import AsyncAPIDefaultPublisher
+
 from adapters.analyze_service import AnalyzePostService
 from application.interfaces.analyze_service import AnalyzePostServiceInterface
 from config.broker import BrokerConfig
-from dishka import Provider, provide
-from faststream.confluent.publisher.asyncapi import AsyncAPIDefaultPublisher
 
 
 class AnalyzeServiceProvider(Provider):

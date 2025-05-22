@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from sqlalchemy import func, select
+
 from adapters.orm.base import BaseORM
 from adapters.orm.post import PostORM
 from adapters.repositories.base import SQLAlchemyRepository
@@ -11,7 +13,6 @@ from application.interfaces.repositories.post import (
 )
 from domain.entities.base import BaseEntity
 from domain.entities.post import PostEntity
-from sqlalchemy import func, select
 
 
 @dataclass(frozen=True)

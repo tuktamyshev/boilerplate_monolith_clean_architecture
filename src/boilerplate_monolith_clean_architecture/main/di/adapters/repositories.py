@@ -1,9 +1,10 @@
+from dishka import Provider, Scope, provide
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from adapters.repositories.post import SQLAlchemyPostRepository
 from adapters.repositories.user import SQLAlchemyUserRepository
 from application.interfaces.repositories.post import PostRepository
 from application.interfaces.repositories.user import UserRepository
-from dishka import Provider, Scope, provide
-from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class SQLAlchemyRepositoriesProvider(Provider):

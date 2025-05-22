@@ -1,8 +1,9 @@
-from application.interfaces.user_notificator import NotifyUsersDTO
-from application.use_cases.notify_users import NotifyUsersUseCase
 from dishka import FromDishka
 from dishka.integrations.faststream import inject
 from faststream.confluent.fastapi import KafkaRouter
+
+from application.interfaces.user_notificator import NotifyUsersDTO
+from application.use_cases.notify_users import NotifyUsersUseCase
 
 router = KafkaRouter()
 

@@ -1,3 +1,8 @@
+from fastapi.requests import Request
+from fastapi.responses import RedirectResponse
+from sqladmin.authentication import AuthenticationBackend
+from starlette.responses import Response
+
 from adapters.auth import JWTTokenService
 from adapters.constants import JWTTokenType
 from adapters.user_uuid_provider import AuthByTokenDTO, TokenUserUUIDProvider
@@ -5,10 +10,6 @@ from application.exceptions.auth import AuthenticationException
 from application.interfaces.repositories.user import UserRepository
 from application.use_cases.user.login import LoginUserUseCase, UserLoginDTO
 from config.auth import JWTAuthConfig
-from fastapi.requests import Request
-from fastapi.responses import RedirectResponse
-from sqladmin.authentication import AuthenticationBackend
-from starlette.responses import Response
 
 
 class AdminAuth(AuthenticationBackend):

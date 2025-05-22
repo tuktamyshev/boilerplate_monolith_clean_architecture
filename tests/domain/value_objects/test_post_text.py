@@ -1,4 +1,5 @@
 import pytest
+
 from domain.exceptions.post import PostTextCannotBeEmptyException, PostTextTooLongException
 from domain.value_objects.post_text import PostTextValueObject
 

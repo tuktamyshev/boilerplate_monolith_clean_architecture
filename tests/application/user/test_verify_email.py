@@ -2,7 +2,6 @@ from unittest.mock import AsyncMock, MagicMock
 
 from application.use_cases.user.verify_email import VerifyEmailUseCase
 from domain.entities.user import UserEntity
-
 from tests.factories.entities import UserEntityFactory
 
 

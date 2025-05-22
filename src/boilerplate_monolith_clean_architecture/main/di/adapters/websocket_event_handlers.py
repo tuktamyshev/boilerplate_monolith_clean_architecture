@@ -1,5 +1,6 @@
-from controllers.websocket.event_handlers.user import WebSocketUserEventHandler
 from dishka import AsyncContainer, Provider, provide
+
+from controllers.websocket.event_handlers.user import WebSocketUserEventHandler
 
 
 class WebSocketEventHandlersProvider(Provider):

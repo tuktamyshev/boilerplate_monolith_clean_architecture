@@ -1,12 +1,13 @@
 from contextlib import AbstractAsyncContextManager, asynccontextmanager
 
 import uvicorn
-from config.base import Config
-from config.logs import setup_logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import ORJSONResponse
 from faststream.confluent.fastapi import KafkaRouter
+
+from config.base import Config
+from config.logs import setup_logging
 from main.admin_panel import init_admin
 from main.api_gateway import init_routers
 from main.di import init_web_di

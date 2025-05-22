@@ -1,9 +1,6 @@
 import logging
 from typing import Any
 
-from application.exceptions.auth import AuthenticationException
-from application.exceptions.base import ApplicationException
-from domain.exceptions.base import DomainException
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exception_handlers import http_exception_handler
 from faststream import ExceptionMiddleware
@@ -11,6 +8,10 @@ from faststream.asyncapi.proto import AsyncAPIApplication
 from starlette import status
 from starlette.responses import Response
 from taskiq import TaskiqMessage, TaskiqMiddleware, TaskiqResult
+
+from application.exceptions.auth import AuthenticationException
+from application.exceptions.base import ApplicationException
+from domain.exceptions.base import DomainException
 
 logger = logging.getLogger("webserver")
 

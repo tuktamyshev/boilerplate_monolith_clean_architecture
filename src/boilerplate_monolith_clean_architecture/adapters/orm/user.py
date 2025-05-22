@@ -1,8 +1,9 @@
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from adapters.orm.base import BaseORM
 from adapters.orm.post import PostORM
 from domain.value_objects.email import EmailValueObject
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 
 class UserORM(BaseORM):

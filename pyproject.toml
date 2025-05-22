@@ -36,7 +36,7 @@ dev = [
 ]
 
 [tool.ruff]
-src = ["src"]
+src = ["src/boilerplate_monolith_clean_architecture" ]
 lint.select = [
     'E',  # pycodestyle errors
     'W',  # pycodestyle warnings

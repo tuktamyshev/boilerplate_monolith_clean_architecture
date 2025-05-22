@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 import bcrypt
+
 from application.interfaces.password_hasher import PasswordHasherInterface
 
 

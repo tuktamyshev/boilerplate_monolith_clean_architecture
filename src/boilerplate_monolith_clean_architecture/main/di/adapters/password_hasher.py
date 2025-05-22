@@ -1,6 +1,7 @@
+from dishka import Provider, provide
+
 from adapters.password_hasher import PasswordHasherService
 from application.interfaces.password_hasher import PasswordHasherInterface
-from dishka import Provider, provide
 
 
 class PasswordHasherProvider(Provider):

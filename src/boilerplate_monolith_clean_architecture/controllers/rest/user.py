@@ -1,10 +1,11 @@
+from dishka import FromDishka
+from dishka.integrations.fastapi import DishkaRoute
+from fastapi import APIRouter
+
 from application.interfaces.repositories.user import UserRepository
 from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from controllers.dtos.user import ReadUserDTO
-from dishka import FromDishka
-from dishka.integrations.fastapi import DishkaRoute
 from domain.entities.user import UserEntity
-from fastapi import APIRouter
 
 router = APIRouter(
     prefix="/user",

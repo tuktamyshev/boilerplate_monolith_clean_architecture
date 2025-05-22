@@ -5,16 +5,17 @@ from json import JSONDecodeError
 from typing import Any, Awaitable, Callable, get_type_hints
 from uuid import UUID
 
+from dishka import AsyncContainer
+from fastapi.encoders import jsonable_encoder
+from fastapi.websockets import WebSocket, WebSocketDisconnect
+from pydantic import ValidationError
+
 from adapters.constants import WebSocketEvents
 from adapters.user_uuid_provider import ContextUserUUIDProvider
 from application.exceptions.base import ApplicationException
 from application.interfaces.user_uuid_provider import UserUUIDProviderInterface
 from controllers.dishka_inject import inject
-from dishka import AsyncContainer
 from domain.exceptions.base import DomainException
-from fastapi.encoders import jsonable_encoder
-from fastapi.websockets import WebSocket, WebSocketDisconnect
-from pydantic import ValidationError
 
 user_websocket_logger = logging.getLogger("user_websocket")
 webserver_logger = logging.getLogger("webserver")

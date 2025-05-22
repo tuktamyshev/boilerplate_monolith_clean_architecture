@@ -1,8 +1,9 @@
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column
+
 from adapters.orm.base import BaseORM
 from adapters.orm.mixins import UserRelationMixin
 from domain.value_objects.post_text import PostTextValueObject
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column
 
 
 class PostORM(BaseORM, UserRelationMixin):

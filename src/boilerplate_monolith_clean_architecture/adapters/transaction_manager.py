@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from types import TracebackType
 
-from application.interfaces.transaction_manager import TransactionManager
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from application.interfaces.transaction_manager import TransactionManager
 
 
 @dataclass(frozen=True)

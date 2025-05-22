@@ -1,5 +1,6 @@
-from controllers import broker_router, main_http_router
 from fastapi import FastAPI
+
+from controllers import broker_router, main_http_router
 
 
 def init_routers(app: FastAPI) -> None:

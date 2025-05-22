@@ -1,6 +1,7 @@
+from sqladmin import ModelView
+
 from adapters.orm.post import PostORM
 from adapters.orm.user import UserORM
-from sqladmin import ModelView
 
 
 class BaseAdmin(ModelView):

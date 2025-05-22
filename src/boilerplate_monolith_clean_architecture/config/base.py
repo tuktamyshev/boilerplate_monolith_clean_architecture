@@ -1,3 +1,5 @@
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 from config import BASE_DIR
 from config.app import AppConfig
 from config.auth import JWTAuthConfig
@@ -5,7 +7,6 @@ from config.broker import BrokerConfig
 from config.db import DatabaseConfig
 from config.smtp import SMTPConfig
 from config.worker import WorkerConfig
-from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Config(BaseSettings):

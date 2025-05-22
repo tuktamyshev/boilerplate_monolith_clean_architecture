@@ -1,9 +1,10 @@
 from datetime import datetime
 from uuid import UUID
 
+from pydantic import BaseModel, Field
+
 from controllers.dtos.pagination import InfraPaginationDTO
 from domain.value_objects.post_text import PostTextValueObject
-from pydantic import BaseModel, Field
 
 
 class ReadPostDTO(BaseModel):

@@ -1,12 +1,13 @@
 from typing import Annotated
 from uuid import UUID
 
-from application.use_cases.admin.delete_post import AdminDeletePostUseCase
-from application.use_cases.admin.delete_user import AdminDeleteUserUseCase
 from dishka import FromDishka
 from dishka.integrations.fastapi import DishkaRoute
-from domain.value_objects.email import EmailValueObject
 from fastapi import APIRouter, Query
+
+from application.use_cases.admin.delete_post import AdminDeletePostUseCase
+from application.use_cases.admin.delete_user import AdminDeleteUserUseCase
+from domain.value_objects.email import EmailValueObject
 
 router = APIRouter(
     prefix="/admin",

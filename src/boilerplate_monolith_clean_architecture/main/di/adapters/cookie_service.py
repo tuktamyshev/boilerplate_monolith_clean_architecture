@@ -1,8 +1,9 @@
+from dishka import Provider, provide
+from fastapi.security import APIKeyCookie
+
 from adapters.cookie_service import CookieService
 from config.app import AppConfig
 from config.auth import JWTAuthConfig
-from dishka import Provider, provide
-from fastapi.security import APIKeyCookie
 
 
 class CookieServiceProvider(Provider):

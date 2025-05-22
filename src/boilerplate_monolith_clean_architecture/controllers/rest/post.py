@@ -1,17 +1,18 @@
 from typing import Annotated
 from uuid import UUID
 
+from dishka import FromDishka
+from dishka.integrations.fastapi import DishkaRoute
+from fastapi import APIRouter, Query
+from starlette import status
+
 from application.interfaces.repositories.post import GetPostListDTO, PostListDTO, PostRepository
 from application.use_cases.post.create import CreatePostDTO, CreatePostUseCase
 from application.use_cases.post.delete import DeletePostUseCase
 from application.use_cases.post.get_list import GetPostListUseCase
 from application.use_cases.post.update import UpdatePostDTO, UpdatePostUseCase
 from controllers.dtos.post import PostFilter, ReadPostDTO
-from dishka import FromDishka
-from dishka.integrations.fastapi import DishkaRoute
 from domain.entities.post import PostEntity
-from fastapi import APIRouter, Query
-from starlette import status
 
 router = APIRouter(
     prefix="/post",

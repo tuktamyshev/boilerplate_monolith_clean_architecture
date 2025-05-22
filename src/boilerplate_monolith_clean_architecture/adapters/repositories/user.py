@@ -1,14 +1,15 @@
 from dataclasses import dataclass
 
+from asyncpg.exceptions import UniqueViolationError
+from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
+
 from adapters.orm.user import UserORM
 from adapters.repositories.base import SQLAlchemyRepository
 from application.exceptions.user import UserWithThisEmailAlreadyExistsException, UserWithThisEmailDoesNotExistsException
 from application.interfaces.repositories.user import UserRepository
-from asyncpg.exceptions import UniqueViolationError
 from domain.entities.user import UserEntity
 from domain.value_objects.email import EmailValueObject
-from sqlalchemy import select
-from sqlalchemy.exc import IntegrityError
 
 
 @dataclass(frozen=True)
